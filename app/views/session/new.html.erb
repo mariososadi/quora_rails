@@ -1,0 +1,24 @@
+<h1><% provide(:title, 'Log In') %>Log In</h1>
+<% if @validations%>
+  <p id="validation_signup" style="color: red">
+    <%= @validations %> </p>
+<% else %>
+<p>Please, introduce your log in email and password.</p>
+<% end%>
+
+<%= form_for(:session,  url: login_path) do |f| %>
+<div class="form-group">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
+<div class="form-group">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div class="form-group">
+  <%= f.submit "Log In", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+<br>
+<p>Or you can  <%= link_to 'sign up here', signup_path %></p>

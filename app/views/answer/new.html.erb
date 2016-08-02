@@ -1,0 +1,14 @@
+<h1><% provide(:title, 'New Answer') %>New Answer</h1>
+<br><br>
+
+<%= form_for(:answer,  url: '/answers/new/' + params[:id] ) do |f| %>
+<div class="form-group">
+ <strong>Answer:</strong>
+</div>
+<div class="form-group">
+  <%=text_area(:answer, :body, cols: 40, rows: 5)%>
+</div>
+<div class="form-group">
+  <%= f.submit "Respond", class: "btn btn-primary" %>
+</div>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Hello <%=@user.first_name %>!</h1>
+ <p><a href="/user/edit"><i class="fa fa-pencil"> &nbsp;</i>Edit Profile</a><br></p>
+<br>
+<%= button_to "Post New Question", '/questions/new', :id => "button", :class => "btn btn-default", :method => :get %>
+
+<br><br>
+<h3>Your Questions</h3>
+<br>
+<ul>
+<% @question.each do|x| %>
+  <% if x.user_id == session[:user_id] %>
+    <li><%= link_to x.title, x %></li>
+  <% end %>
+<% end %>
+</ul>
+<br>
+
+<h3>Your Answers</h3>
+<br>
+<br><br>
+<br>
+

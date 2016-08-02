@@ -1,0 +1,9 @@
+<h1><i class="fa fa-question"></i>&nbsp;Questions</h1>
+<h4>Recent Questions</h4><br>
+<p>Please, select a question if you know the answer.</p>
+<br>
+<% @question.each do|x| %>
+  <h3><%= link_to x.title, x %></h3>
+  <p>Posted by: <%= @user.find(x.user_id).first_name %> <%= @user.find(x.user_id).last_name %></p>
+  <br>
+<% end %>

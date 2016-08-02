@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+
+ 
+
+   root 'static_pages#home'
+
+  # get 'session/new'
 
   # get 'static_pages/home'
 
@@ -7,13 +14,31 @@ Rails.application.routes.draw do
   # get 'static_pages/about'
 
   # get 'static_pages/contact'
+  get 'question/new'
+  get 'question/show'
+  get 'users/new'
+  get 'questions/all', to: 'question#show'
+  get 'questions/new', to: 'question#new'
+  post '/questions', to: 'question#create'
+  get '/questions/:id', to:  'question#id'
+  resources :questions
 
-  root 'static_pages#home'
+  # get 'answer/new'
+  get 'answers/new/:id', to: 'answer#new'
+  post 'answers/new/:id', to: 'answer#create'
+  resources :answers
+
+ 
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
-  get  '/signup',  to: 'users#new'
-  post '/signup',  to: 'users#create'
+  get  '/signup',  to: 'user#new'
+  post '/signup',  to: 'user#create'
+  get    '/login',   to: 'session#new'
+  post   '/login',   to: 'session#create'
+  get '/logout',  to: 'session#destroy'
+  delete '/logout',  to: 'session#destroy'
+  get '/users/:id', to:  'user#show'
   resources :users
 
 

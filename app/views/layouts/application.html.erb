@@ -34,15 +34,15 @@
 
 <% if logged_in? %>
 
-  <li><a href="/questions/new">Post New Question</a></li>
-  <li><a href="/questions/all_users">Answer Question</a></li>
-
-  <li><a href="/logout">Log Out</a></li>
+  <li><%= link_to 'Post New Question', '/questions/new' %></li>
+  <li><%= link_to 'Answer Question', '/questions/all' %></li>
+  <li><%= link_to "User Profile", user_path(current_user) %></li>
+  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 
 <% else %> 
 
-  <li><%= link_to 'Log In', 'application/login' %></li>
-  <li><%= link_to 'Sign Up', 'application/signup' %></li>
+  <li><%= link_to 'Log In', login_path %></li>
+  <li><%= link_to 'Sign Up', signup_path %></li>
 <% end%>
   </ul>
 </nav>

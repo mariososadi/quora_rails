@@ -1,0 +1,21 @@
+<h1><%=@question.title %></h1>
+<p><%= @question.body %></p>
+<br>
+
+<p><i class="fa fa-pencil"></i><%= link_to 'Answer', '/answers/new/'+ params[:id] %></p>
+<br><br>
+<h4>Answers:</h4><br>
+
+<% Answer.all.each do|x| %>
+
+  <% if x.question_id == @question.id %>
+  <div class="well" style="background-color: #BCBCBC">
+   <p><%=x.body%></p> <p> <strong>Answered by: <%= @user.find(x.user_id).first_name %>&nbsp;<%= @user.find(x.user_id).last_name %></strong></p>&nbsp;
+    <%=x.quest_date%>
+    </div>
+<% end %>
+
+<% end %>
+
+<br>
+<br>
