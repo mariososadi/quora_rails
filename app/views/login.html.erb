@@ -1,0 +1,25 @@
+<h1>Log In</h1>
+<% if @validations%>
+  <p id="validation_signup" style="color: red">
+    <%= @validations %> </p>
+<% else %>
+<p>Please, introduce your log in email and password.</p>
+<% end%>
+
+<br>
+
+<form method="post" action="/user/login">
+<div class="form-group">
+<label for="username">Email</label>
+<input type="text" name="email" placeholder="Your Email"><br>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" name="password" placeholder="Your Password"><br>
+</div>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input class="btn btn-primary" type="submit" name="submit" value="Log In">
+</form>
+
+<br>
+<p>Or you can <a href="/signup">sign up here.</a></p>

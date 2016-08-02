@@ -1,0 +1,43 @@
+<h1><% provide(:title, 'Sign up') %>/h1>
+<% if @validations=="0"%>
+  <p id="validation_signup" style="color: red">
+    Oops! you enter an invalid email or password. Plase, try again.</p>
+<% elsif @validations=="1"%>
+  <p id="validation_signup" style="color: red">That email adress is already taken. Please, enter a different one.</p>
+<%else%>
+  <p id="validation_signup" id="para">Please, introduce a valid email adress and password.</p>
+<% end%>
+
+  <div style="background:#FFB6C1">
+    <ul id="mensaje_b" style="color:red"></ul>
+  </div>
+
+<%= form_for(@user) do |f| %>
+
+<% end %>
+
+<br>
+<form id="signup" method="post" action="/user/signup">
+<div class="form-group">
+<label for="first_name">First Name</label>
+<input id="first_name" type="text" name="first_name" placeholder="Your First Name"><br>
+</div>
+<div class="form-group">
+<label for="last_name">Last Name</label>
+<input id="last_name" type="text" name="last_name" placeholder="Your Last Name"><br>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input id="email" type="text" name="email" placeholder="Your Email"><br>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input id="password" type="password" name="password" placeholder="Your Password"><br>
+</div>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input class="btn btn-primary" type="submit" name="submit" value="Sign Up!">
+</form>
+
+<br>
+<p>Or you can <a href="/login">log in here.</a></p>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>QuoraRails</title>
+   <!-- 
+    normalize.css remueve las diferenecia que hay entre browsers segun los defaults de css predeterminados que utilizan. 
+    Revisa: http://necolas.github.com/normalize.css/
+  -->
+ <!--  <link rel="stylesheet" href="/css/normalize.css"> -->
+  <!--
+    application.css este es el archivo donde van tus estilos, tu css
+  -->
+<!--   <link rel="stylesheet" href="/css/application.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <div class="navbar-header">
+    <p class="navbar-brand"><i class="fa fa-question"></i>&nbsp;<%= link_to 'QUORA 2.0', '/' %></p>
+  <ul class="nav navbar-nav">
+
+<% if logged_in? %>
+
+  <li><a href="/questions/new">Post New Question</a></li>
+  <li><a href="/questions/all_users">Answer Question</a></li>
+
+  <li><a href="/logout">Log Out</a></li>
+
+<% else %> 
+
+  <li><%= link_to 'Log In', 'application/login' %></li>
+  <li><%= link_to 'Sign Up', 'application/signup' %></li>
+<% end%>
+  </ul>
+</nav>
+  <div class="container">
+    <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+</body>
+</html>
