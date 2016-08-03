@@ -21,11 +21,13 @@ Rails.application.routes.draw do
   get 'questions/new', to: 'question#new'
   post '/questions', to: 'question#create'
   get '/questions/:id', to:  'question#id'
+  get '/vote', to: 'question#vote'
   resources :questions
 
   # get 'answer/new'
   get 'answers/new/:id', to: 'answer#new'
   post 'answers/new/:id', to: 'answer#create'
+  get '/vote/answer', to: 'answer#vote'
   resources :answers
 
  

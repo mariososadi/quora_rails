@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>QuoraRails</title>
+  <title>Quora 2.0</title>
    <!-- 
     normalize.css remueve las diferenecia que hay entre browsers segun los defaults de css predeterminados que utilizan. 
     Revisa: http://necolas.github.com/normalize.css/
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+  <script src="/app/assets/javascripts/application.js"></script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -48,7 +48,6 @@
 </nav>
   <div class="container">
     <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
   </div>
 </body>
 </html>
